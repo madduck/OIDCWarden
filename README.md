@@ -2,6 +2,13 @@
 
 An alternative server implementation of the Bitwarden Client API, written in Rust and compatible with [official Bitwarden clients](https://bitwarden.com/download/) [[disclaimer](#disclaimer)], perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.
 
+> [!NOTE]
+> This fork carries [Key Connector support](https://github.com/dani-garcia/vaultwarden/pull/7419) until
+> (hopefully) merged upstream. `main` is the upstream main plus that PR, gets rebased and force-pushed on
+> updates, and is built as `ghcr.io/acul021/vaultwarden:testing` (amd64 only). Setup instructions are in the
+> [key-connector](https://github.com/acul021/key-connector) README. Everything below is the unchanged
+> upstream README.
+
 ---
 
 [![GitHub Release](https://img.shields.io/github/release/dani-garcia/vaultwarden.svg?style=for-the-badge&logo=vaultwarden&color=005AA4)](https://github.com/dani-garcia/vaultwarden/releases/latest)
