@@ -18,7 +18,7 @@ build_stage_image:
   alpine:
     image: "build_${TARGETARCH}${TARGETVARIANT}"
     arch_image:
-      amd64: "ghcr.io/blackdex/rust-musl:x86_64-musl-stable-{{rust_version}}"
+      amd64: "ghcr.io/blackdex/rust-musl:x86_64-musl-stable-{{rust_version}}@sha256:e1f19ba728769151ef559cf23a0f5670492d59bef460b6727e027840865e942d"
       arm64: "ghcr.io/blackdex/rust-musl:aarch64-musl-stable-{{rust_version}}"
       armv7: "ghcr.io/blackdex/rust-musl:armv7-musleabihf-stable-{{rust_version}}"
       armv6: "ghcr.io/blackdex/rust-musl:arm-musleabi-stable-{{rust_version}}"
