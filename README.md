@@ -3,7 +3,14 @@
 Soft fork from [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden).
 Goal is to provide an OIDC compatible solution with the ultimate goal of merging features back in Vaultwarden.
 
-A master password is still required and not controlled by the SSO (depending on your point of view this might be a feature ;).
+> [!NOTE]
+> This fork carries [Key Connector support](https://github.com/dani-garcia/vaultwarden/pull/7419) until
+> (hopefully) merged upstream. `main` is the upstream main plus that PR, gets rebased and force-pushed on
+> updates, and is built as `ghcr.io/acul021/vaultwarden:testing` (amd64 only). Setup instructions are in the
+> [key-connector](https://github.com/acul021/key-connector) README. Everything below is the unchanged
+> upstream README.
+
+---
 
 Bitwarden [key connector](https://bitwarden.com/help/about-key-connector) is not supported and due to the [license](https://github.com/bitwarden/key-connector/blob/main/LICENSE.txt) it's highly unlikely that it will ever be:
 
@@ -58,10 +65,10 @@ See details in [SSO.md](SSO.md).
 
 The goal is to backports features in Vaultwarden:
 
-- Allow role mapping: https://github.com/dani-garcia/vaultwarden/pull/6158
-- Send email verification support: https://github.com/dani-garcia/vaultwarden/pull/7363
-- Support admin 2FA reset: https://github.com/dani-garcia/vaultwarden/pull/7435
-- `SSO_SIGNUPS_ALLOWED`: https://github.com/dani-garcia/vaultwarden/pull/7272
+- Allow role mapping: <https://github.com/dani-garcia/vaultwarden/pull/6158>
+- Send email verification support: <https://github.com/dani-garcia/vaultwarden/pull/7363>
+- Support admin 2FA reset: <https://github.com/dani-garcia/vaultwarden/pull/7435>
+- `SSO_SIGNUPS_ALLOWED`: <https://github.com/dani-garcia/vaultwarden/pull/7272>
 
 ### No email on login
 
@@ -144,7 +151,6 @@ This feature is controlled with the following configuration:
 - `SSO_ORGANIZATIONS_REVOCATION`: control if user revocation are made (default `false`).
 - `SSO_PROVIDER_GROUPS_ALLOWLIST`: optional, list of provider groups to consider when mapping.
 
-
 #### Organization member role
 
 Custom roles can be sent to set the organization member role. Only on role can be defined for all organization.
@@ -200,8 +206,8 @@ You need to pass an env variable: `-e SSO_FRONTEND='override'` (cf [start.sh](do
 
 Docker images available at:
 
- - Docker hub [hub.docker.com/r/timshel/oidcwarden](https://hub.docker.com/r/timshel/oidcwarden/tags)
- - Github container registry [ghcr.io/timshel/oidcwarden](https://github.com/Timshel/oidcwarden/pkgs/container/oidcwarden)
+- Docker hub [hub.docker.com/r/timshel/oidcwarden](https://hub.docker.com/r/timshel/oidcwarden/tags)
+- Github container registry [ghcr.io/timshel/oidcwarden](https://github.com/Timshel/oidcwarden/pkgs/container/oidcwarden)
 
 ## NixOS
 
@@ -209,8 +215,9 @@ A nixpkgs is available maintained by [@DerGrumpf](https://github.com/DerGrumpf)
 
 OIDCWarden can be used with the existing [vaultwarden service](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/security/vaultwarden/default.nix) defined in [nixpkgs](https://github.com/NixOS/nixpkgs).
 
-Just set the package option to: 
-```nix 
+Just set the package option to:
+
+```nix
 services.vaultwarden.package = pkgs.oidcwarden;
 ```
 
