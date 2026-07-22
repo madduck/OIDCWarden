@@ -11,6 +11,7 @@ on:
   push:
     branches:
       - main
+      - toni-int
 
     tags:
       # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
