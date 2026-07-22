@@ -3,7 +3,7 @@ permissions: {}
 
 concurrency:
   # Apply concurrency control only on the upstream repo
-  group: ${{ github.repository == 'timshel/oidcwarden' && format('{0}-{1}', github.workflow, github.ref) || github.run_id }}
+  group: ${{ github.repository == 'madduck/oidcwarden' && format('{0}-{1}', github.workflow, github.ref) || github.run_id }}
   # Don't cancel other runs when creating a tag
   cancel-in-progress: ${{ github.ref_type == 'branch' }}
 
@@ -37,7 +37,7 @@ defaults:
 jobs:
   docker-build:
     name: Build OIDCWarden containers
-    if: ${{ github.repository == 'timshel/oidcwarden' }}
+    if: ${{ github.repository == 'madduck/oidcwarden' }}
     environment:
       name: main
       deployment: false
